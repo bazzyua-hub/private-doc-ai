@@ -40,7 +40,7 @@ EXE_NAME = f"{APP_NAME}.exe" if IS_WIN else APP_NAME
 # ソースコードのzipに入れないもの（モデル・ビルド成果物・自分の資料・仮想環境）
 SOURCE_EXCLUDE_DIRS = {".venv", "venv", "env", "build", "dist", "__pycache__", ".pytest_cache", ".git", ".idea", ".vscode",
                        "models", "llama", "samples", ".mypy_cache", ".ruff_cache"}
-SOURCE_EXCLUDE_SUFFIXES = {".gguf", ".part", ".pyc", ".pyo", ".csv", ".zip", ".log"}
+SOURCE_EXCLUDE_SUFFIXES = {".gguf", ".part", ".pyc", ".pyo", ".csv", ".zip", ".log", ".pdf"}   # .pdf: 要約に使った自分の資料を、配布物に紛れ込ませない
 
 # 同梱するライブラリのライセンス全文を、インストール済みの配布物から集める（ディストリビューション名 → 保存名）
 LICENSE_DISTS = {

@@ -176,12 +176,21 @@ def test_source_zip_excludes_models_binaries_and_private_files(tmp_path):
         assert sorted(f.namelist()) == ["LocalDocAI-source/LICENSE", "LocalDocAI-source/app/x.py"]
 
 
+def test_source_zip_never_contains_pdfs(tmp_path):
+    """実機で確認：プロジェクト直下に置いた自分のPDFが、配布zipのソースに入るところだった。PDFは入れない。"""
+    _fake_tree(tmp_path)
+    (tmp_path / "my_document.pdf").write_bytes(b"%PDF-1.4")
+    (tmp_path / "app" / "inner.PDF").write_bytes(b"%PDF-1.4")
+    names = [p.as_posix() for p in bp.source_files(tmp_path)]
+    assert not [n for n in names if n.lower().endswith(".pdf")]
+
+
 def test_real_project_source_zip_has_no_models_or_secrets(tmp_path):
     z = bp.make_source_zip(ROOT, tmp_path / "src.zip")
     with zipfile.ZipFile(z) as f:
         names = f.namelist()
     assert any(n.endswith("app/summary/fidelity.py") for n in names) and any(n.endswith("/LICENSE") for n in names)
-    assert not [n for n in names if n.endswith((".gguf", ".pyc", ".csv")) or "/.venv/" in n or "/samples/" in n or "/build/" in n]
+    assert not [n for n in names if n.lower().endswith((".gguf", ".pyc", ".csv", ".pdf")) or "/.venv/" in n or "/samples/" in n or "/build/" in n]
 
 
 def test_stage_static_and_zip_layout(tmp_path):
@@ -227,3 +236,12 @@ def test_users_documents_are_not_part_of_any_package_script():
     """配布スクリプトが、文書を読み書きする処理を持たない（方針: 文書の内容は、利用者の「コピー」「保存」以外で書き出さない）。"""
     src = (ROOT / "tools/build_package.py").read_text(encoding="utf-8")
     assert "extract_pdf" not in src and "Summarizer" not in src
+
+
+def test_guide_and_readme_say_the_output_is_not_guaranteed():
+    """配布物と README に、内容の保証ができないこと・原文で確認することを書いておく。"""
+    guide = (ROOT / "packaging/dist_files/使い方.txt").read_text(encoding="utf-8")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for doc in (guide, readme):
+        assert "保証" in doc and "元のPDF" in doc and "AGPL-3.0" in doc
+    assert "原文を読む負担を減らす" in readme and "原文を読む負担を減らす" in guide

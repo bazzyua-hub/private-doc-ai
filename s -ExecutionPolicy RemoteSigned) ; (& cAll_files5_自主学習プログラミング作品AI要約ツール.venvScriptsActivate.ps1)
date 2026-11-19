@@ -1,0 +1,83 @@
+ .gitattributes                                     |   9 [31m-[m
+ .gitignore                                         | 232 [32m+++++[m[31m-[m
+ LICENSE                                            | 682 [32m+[m[31m----------------[m
+ README.md                                          | 248 [32m+[m[31m------[m
+ app/__init__.py                                    |   0
+ app/core/__init__.py                               |   0
+ app/core/cancel.py                                 |  56 [31m--[m
+ app/core/config.py                                 | 186 [31m-----[m
+ app/core/errors.py                                 |  37 [31m-[m
+ app/core/metrics.py                                |  87 [31m---[m
+ app/gui/__init__.py                                |   1 [31m-[m
+ app/gui/app.py                                     | 108 [31m---[m
+ app/gui/assets/fonts/HachiMaruPop-Regular.ttf      | Bin [31m4385624[m -> [32m0[m bytes
+ app/gui/assets/fonts/OFL-HachiMaruPop.txt          |  93 [31m---[m
+ app/gui/assets/fonts/OFL-ZenMaruGothic.txt         |  93 [31m---[m
+ app/gui/assets/fonts/README.txt                    |   7 [31m-[m
+ app/gui/assets/fonts/ZenMaruGothic-Bold.ttf        | Bin [31m3779008[m -> [32m0[m bytes
+ app/gui/assets/fonts/ZenMaruGothic-Regular.ttf     | Bin [31m3832756[m -> [32m0[m bytes
+ app/gui/export.py                                  |  38 [31m-[m
+ app/gui/html.py                                    | 165 [31m-----[m
+ app/gui/main_window.py                             | 524 [31m-------------[m
+ app/gui/theme.py                                   | 182 [31m-----[m
+ app/gui/worker.py                                  | 113 [31m---[m
+ app/llm/__init__.py                                |   0
+ app/llm/engine.py                                  | 455 [31m------------[m
+ app/llm/prompts.py                                 | 162 [31m----[m
+ app/pdf/__init__.py                                |   0
+ app/pdf/extractor.py                               | 275 [31m-------[m
+ app/pdf/text_processor.py                          | 551 [31m--------------[m
+ app/pipeline.py                                    |  89 [31m---[m
+ app/summary/__init__.py                            |   0
+ app/summary/attribution.py                         | 126 [31m----[m
+ app/summary/citations.py                           | 320 [31m--------[m
+ app/summary/fidelity.py                            | 389 [31m----------[m
+ app/summary/schemas.py                             | 258 [31m-------[m
+ app/summary/summarizer.py                          | 817 [31m---------------------[m
+ app/summary/tasks.py                               | 382 [31m----------[m
+ build.bat                                          |  14 [31m-[m
+ gui.py                                             |  26 [31m-[m
+ llama/.gitkeep                                     |   0
+ main.py                                            | 220 [31m------[m
+ models/.gitkeep                                    |   0
+ packaging/LocalDocAI.ico                           | Bin [31m24666[m -> [32m0[m bytes
+ packaging/LocalDocAI.spec                          |  63 [31m--[m
+ packaging/THIRD_PARTY_NOTICES.txt                  |  30 [31m-[m
+ packaging/dist_files/check.bat                     |  11 [31m-[m
+ packaging/dist_files/get_model.bat                 |   6 [31m-[m
+ packaging/dist_files/get_model.ps1                 |  50 [31m--[m
+ .../\344\275\277\343\201\204\346\226\271.txt"      |  34 [31m-[m
+ packaging/licenses/Apache-2.0.txt                  | 177 [31m-----[m
+ packaging/licenses/LGPL-3.0.txt                    | 166 [31m-----[m
+ packaging/licenses/MIT-llama.cpp.txt               |  26 [31m-[m
+ pytest.ini                                         |   3 [31m-[m
+ requirements-build.txt                             |   3 [31m-[m
+ requirements-dev.txt                               |   2 [31m-[m
+ requirements-gui.txt                               |   3 [31m-[m
+ requirements.txt                                   |   4 [31m-[m
+ setup.bat                                          |  31 [31m-[m
+ start.bat                                          |   9 [31m-[m
+ start_gui.bat                                      |   9 [31m-[m
+ tests/fake_llama_server.py                         | 126 [31m----[m
+ tests/helpers.py                                   | 103 [31m---[m
+ tests/test_attribution.py                          |  43 [31m--[m
+ tests/test_citations.py                            | 298 [31m--------[m
+ tests/test_cli.py                                  |  99 [31m---[m
+ tests/test_engine.py                               | 202 [31m-----[m
+ tests/test_extractor.py                            | 135 [31m----[m
+ tests/test_fidelity.py                             | 351 [31m---------[m
+ tests/test_gui.py                                  | 355 [31m---------[m
+ tests/test_packaging.py                            | 229 [31m------[m
+ tests/test_reliability.py                          | 226 [31m------[m
+ tests/test_security.py                             |  73 [31m--[m
+ tests/test_setup_assets.py                         |  90 [31m---[m
+ tests/test_summarizer.py                           | 517 [31m-------------[m
+ tests/test_tasks.py                                | 145 [31m----[m
+ tests/test_text_processor.py                       | 312 [31m--------[m
+ tools/bench.py                                     | 102 [31m---[m
+ tools/build_package.py                             | 244 [31m------[m
+ tools/eval_facts.py                                |  77 [31m--[m
+ tools/make_icon.py                                 |  52 [31m--[m
+ tools/make_sample_pdfs.py                          | 100 [31m---[m
+ tools/setup_assets.py                              | 205 [31m------[m
+ 82 files changed, 241 insertions(+), 11415 deletions(-)
