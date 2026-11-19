@@ -1,0 +1,9 @@
+# 配布版の .bat / .ps1 / 使い方 は Windows 用なので、チェックアウトしても CRLF のままにする（テストも確認している）
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+packaging/dist_files/*.txt text eol=crlf
+
+# バイナリは変換しない
+*.ttf binary
+*.ico binary
+*.png binary

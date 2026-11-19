@@ -1,0 +1,30 @@
+LocalDoc AI — 同梱している部品とライセンス / Third-party notices
+==================================================================
+
+LocalDoc AI 本体は GNU Affero General Public License v3.0（AGPL-3.0）です（同梱の LICENSE）。
+ソースコード: 同梱の source/LocalDocAI-source.zip（このアプリを渡すときは、ソースコードも一緒に渡してください）。
+
+| 部品 | バージョン | ライセンス | 入手元 | 全文 |
+|---|---|---|---|---|
+| Python（実行環境。LocalDocAI.exe に内包） | 3.x | PSF License | https://www.python.org/ | licenses/PSF-Python.txt（ビルド時に収集） |
+| PySide6 / Qt for Python（GUI） | 6.x | LGPL-3.0 | https://doc.qt.io/qtforpython-6/ | licenses/LGPL-3.0.txt |
+| PyMuPDF（PDF読み取り） | 1.26.7 | AGPL-3.0 | https://github.com/pymupdf/PyMuPDF | licenses/PyMuPDF-COPYING |
+| psutil | 5.9 以降 | BSD-3-Clause | https://github.com/giampaolo/psutil | licenses/psutil-LICENSE |
+| PyInstaller（実行ファイルの生成。ブートローダーを内包） | 6.x | GPL-2.0 + 実行ファイルの配布を許す例外 | https://pyinstaller.org/ | licenses/PyInstaller-COPYING.txt |
+| llama.cpp の llama-server | b12503 | MIT | https://github.com/ggml-org/llama.cpp | llama/LICENSE ほか（licenses/MIT-llama.cpp.txt） |
+| Qwen3-1.7B（GGUF・モデルを同梱する配布のみ） | Q8_0 | Apache-2.0 | https://huggingface.co/Qwen/Qwen3-1.7B-GGUF | licenses/Apache-2.0.txt |
+| Hachi Maru Pop（見出しのフォント） | - | SIL OFL 1.1 | https://github.com/google/fonts | _internal/app/gui/assets/fonts/OFL-HachiMaruPop.txt |
+| Zen Maru Gothic（本文のフォント） | - | SIL OFL 1.1 | https://github.com/google/fonts | _internal/app/gui/assets/fonts/OFL-ZenMaruGothic.txt |
+
+■ PySide6 / Qt（LGPL-3.0）について
+Qt のライブラリは LocalDocAI.exe に静的に埋め込まれず、_internal フォルダの中に DLL（共有ライブラリ）として
+別のファイルのまま入っています。LGPL-3.0 の条件に従い、利用者はこれらのライブラリを、同じ版の PySide6 に
+差し替えて動かすことができます。Qt のソースコードは https://download.qt.io/ から入手できます。
+LGPL-3.0 は GNU GPL-3.0 の条件に追加の許可を加えたものです（GPL-3.0 の全文: https://www.gnu.org/licenses/gpl-3.0.txt）。
+
+■ モデルについて
+モデル（Qwen3）の出力には、誤りが含まれることがあります。モデルのライセンス（Apache-2.0）は、モデルを同梱する配布のときだけ
+適用されます。モデルを同梱しない配布では、利用者が get_model.bat で取得します。
+
+■ 同梱していない・使っていないもの
+外部のAI API・クラウドサービスは使いません。PDFの内容は、このPCの外へ出ません。

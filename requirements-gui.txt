@@ -1,0 +1,3 @@
+# GUI（Phase 3）に必要なもの。PySide6 は LGPL-3.0。Essentials で足りる（Addons は不要）。
+-r requirements.txt
+PySide6-Essentials>=6.7,<7

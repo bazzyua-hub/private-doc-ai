@@ -1,0 +1,19 @@
+# 仮想環境・キャッシュ
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 大きなバイナリは含めない（tools/setup_assets.py で取得する）
+models/*.gguf
+models/*.part
+llama/*
+!llama/.gitkeep
+
+# ベンチ結果・サンプル・自分の資料
+samples/
+*.csv
+
+# 配布ビルドの成果物
+build/
+dist/

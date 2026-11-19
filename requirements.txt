@@ -1,0 +1,4 @@
+# 実行に必要なもの。バージョンは動作確認したものに固定しています。
+# PyMuPDF は 1.26.7 に固定: 2.x は numpy / onnxruntime / pymupdf-layout などを一緒に導入する重い構成のため。
+PyMuPDF==1.26.7
+psutil>=5.9
